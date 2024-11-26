@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éditeur HTML</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="project-selector">
+            <select id="projectSelect">
+                <option value="default">Projet par défaut</option>
+            </select>
+            <button class="btn btn-secondary" id="newProject">
+                <i data-lucide="plus"></i>
+                Nouveau projet
+            </button>
+        </div>
+        <div class="header-actions">
+            <button class="btn btn-secondary" id="viewCode">
+                <i data-lucide="code"></i>
+                Voir le code
+            </button>
+            <button class="btn" id="saveProject">
+                <i data-lucide="save"></i>
+                Sauvegarder
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-section">
+                <h2>
+                    <i data-lucide="settings"></i>
+                    Propriétés générales
+                </h2>
+                <div class="element-properties">
+                    <div class="property-group">
+                        <label>Titre de la page</label>
+                        <input type="text" id="pageTitle" value="Ma page">
+                    </div>
+                    <div class="property-group">
+                        <label>Description</label>
+                        <textarea id="pageDescription"></textarea>
+                    </div>
+                    <div class="property-group">
+                        <label>Favicon URL</label>
+                        <input type="text" id="pageFavicon" placeholder="https://...">
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section" id="properties-panel">
+                <h2>
+                    <i data-lucide="sliders"></i>
+                    Propriétés de l'élément
+                </h2>
+                <p class="select-element-message">Sélectionnez un élément pour modifier ses propriétés</p>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>
+                    <i data-lucide="plus-circle"></i>
+                    Ajouter un élément
+                </h2>
+                <div class="elements-grid">
+                    <button class="add-element" data-type="section">
+                        <i data-lucide="layout"></i>
+                        Section
+                    </button>
+                    <button class="add-element" data-type="heading">
+                        <i data-lucide="heading"></i>
+                        Titre
+                    </button>
+                    <button class="add-element" data-type="text">
+                        <i data-lucide="text"></i>
+                        Texte
+                    </button>
+                    <button class="add-element" data-type="button">
+                        <i data-lucide="mouse-pointer-click"></i>
+                        Bouton
+                    </button>
+                    <button class="add-element" data-type="image">
+                        <i data-lucide="image"></i>
+                        Image
+                    </button>
+                    <button class="add-element" data-type="link">
+                        <i data-lucide="link"></i>
+                        Lien
+                    </button>
+                    <button class="add-element" data-type="list">
+                        <i data-lucide="list"></i>
+                        Liste
+                    </button>
+                    <button class="add-element" data-type="divider">
+                        <i data-lucide="minus"></i>
+                        Séparateur
+                    </button>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>
+                    <i data-lucide="layers"></i>
+                    Éléments existants
+                </h2>
+                <div id="existing-elements" class="elements-list">
+                    <p class="empty-message">Aucun élément</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="preview">
+            <div class="preview-container">
+                <iframe id="previewFrame" src="about:blank"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="codeModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Code HTML</h2>
+            <textarea id="codeView" readonly></textarea>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
